@@ -272,6 +272,7 @@ then
 	find "$tmp/$right_dir" -type f |
 	while read file
 	do
+        mkdir -p "$(dirname $git_top_dir/${file#$tmp/$right_dir/})"
 		cp "$file" "$git_top_dir/${file#$tmp/$right_dir/}"
 	done
 fi

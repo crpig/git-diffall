@@ -261,6 +261,8 @@ then
 	export BASE
 	eval $diff_tool '"$LOCAL"' '"$REMOTE"'
 else
+	# Since git_v2.31.0, we need to call initialize_merge_tool before run_merge_tool
+	initialize_merge_tool "$merge_tool" 2>/dev/null
 	run_merge_tool "$merge_tool" false
 fi
 
